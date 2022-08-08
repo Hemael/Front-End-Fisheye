@@ -1,37 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <title>Fisheye - photographe </title>
     <meta charset="utf-8">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <script defer src="/scripts/pages/photographer.js"></script>
+    <script defer src="/scripts/utils/contactForm.js"></script>
   </head>
+
+
   <body>
+
     <header>
       <img src="assets/images/logo.png" class="logo" />
     </header>
+
     <main id="main">
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
     </main>
+
+
     <div id="contact_modal">
 			<div class="modal">
-				<header>
+
+				<div class="boutton">
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
+        </div>
+
 				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
+          <div class="formData">
+          <label for="first">Prénom</label><br>
+              <input class="text-control" type="text" id="first" name="first" /><br>
+            </div>
+            <div class="formData">
+              <label for="last">Nom</label><br>
+              <input class="text-control" type="text" id="last" name="last" /><br>
+            </div>
+            <div class="formData">
+              <label>E-mail</label><br>
+              <input class="text-control" type="text" id="email" name="email" /><br>
+            </div>
+            <div class="formData">
+              <label>Votre message</label><br>
+              <input class="text-control" type="text" id="message" name="message" /><br>
+            </div>
           <button class="contact_button">Envoyer</button>
+
 				</form>
+
 			</div>
 		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+    
   </body>
 </html>

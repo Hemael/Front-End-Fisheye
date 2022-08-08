@@ -1,0 +1,21 @@
+
+
+const response = await fetch('/data/photographers.json');
+const photographe = await response.json();
+
+fetch va chercher sur l'url '/data/photographers.json' les donnés.
+le premier / fais reference a la racine du projet web. 
+Fetch envoie une reponse non exploitable en temps que tel vu que c'est une ressource.
+nous demandant a la ligne 4 a la ressource (response) de nous renvoyer la reponse sous le format json
+
+
+
+retourne les valeurs photographers
+return photographe;
+    
+
+
+
+
+
+passer par quoi pour les pages photographes (par le get (parametre par url) ou par le post(passer par lentete))
