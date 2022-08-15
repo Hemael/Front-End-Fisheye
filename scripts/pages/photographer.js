@@ -23,8 +23,14 @@ async function displayData(medias) {
 
 async function init() {
     // Récupère les datas des photographes
-    const  medias  = await getMedia(82);
+    var str = window.location.toString();
+    var url = new URL(str);
+    const  medias  = await getMedia(url.searchParams.get("idPhotographer"));
     displayData(medias);
 };
+
+
+
+
 
 init();

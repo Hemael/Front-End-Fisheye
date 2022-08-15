@@ -19,3 +19,15 @@ return photographe;
 
 
 passer par quoi pour les pages photographes (par le get (parametre par url) ou par le post(passer par lentete))
+
+
+
+
+ou mettre dans le javascript alt et aria-label.
+
+
+
+const photographerModel = photographerFactory(photographer);
+--> photographerModel c'est le nom de la variable
+--> photographerFactory : c'est la fonction
+--> (photographer) : c'est la variable mis en parametre
