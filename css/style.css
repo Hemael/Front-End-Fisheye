@@ -45,6 +45,37 @@ h1 {
 }
 
 .photographer_section article img {
+    height: 100%;
+    width: 100%;
+}
+
+article p{
+
+
+    margin: 1px;
+    font-size: 13px;
+}
+
+article .photodim img{
+
+    border-radius: 50%;
+    object-fit:cover;
+}
+
+article h2{
+    margin: 5px
+}
+
+.habitation{
+    color: #901C1C;
+    font-size: 18px;
+}
+
+.prix{
+    color: gray;
+}
+
+.photodim{
     height: 200px;
-    width: 200px;
+    width:200px;
 }
