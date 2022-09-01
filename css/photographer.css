@@ -57,7 +57,7 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 25px;
 }
 
 form div {
@@ -65,7 +65,7 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
+    margin-bottom: 23px;
 }
 
 form input {
@@ -147,4 +147,28 @@ article .tagline{
 .mediasSection{
     display: flex;
     flex-direction: row;
+}
+
+.text-area{
+    resize : both;
+ min-width : 100%;
+ min-height : 300px;
+ max-width : 100%;
+ max-height : 300px;
+}
+.boutton-close{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+
+}
+
+.boutton-close h2{
+    font-size: 50px;
+    color: #312E2E;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
