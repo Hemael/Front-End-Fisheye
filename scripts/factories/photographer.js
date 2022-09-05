@@ -1,6 +1,9 @@
+
+
 function photographerFactory(data) {
     const { name, id, city, country, tagline, price, portrait } = data;
 
+    
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
@@ -12,19 +15,17 @@ function photographerFactory(data) {
         const div = document.createElement( 'div' );
         div.classList.add("photodim");
         
-
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        img.setAttribute("onclick",`document.location.href='${url}'`)
-        div.appendChild(img)
-
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         h2.setAttribute("onclick",`document.location.href='${url}'`)
+
+        const img = document.createElement( 'img' );
+        img.setAttribute("src", picture)
+        img.setAttribute('alt',name)
+        img.setAttribute("onclick",`document.location.href='${url}'`)
+        div.appendChild(img)
+
         
-        const arialabel = document.createElement( 'alt' );
-        arialabel.textContent = name;
-        img.appendChild(arialabel)
         
         
         const texte = document.createElement( 'p' );

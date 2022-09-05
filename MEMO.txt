@@ -31,3 +31,9 @@ const photographerModel = photographerFactory(photographer);
 --> photographerModel c'est le nom de la variable
 --> photographerFactory : c'est la fonction
 --> (photographer) : c'est la variable mis en parametre
+
+
+demander a mon prof priver : 
+
+rajouter nom dans questionnaire
+truc photo

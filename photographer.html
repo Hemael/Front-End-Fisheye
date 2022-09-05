@@ -19,42 +19,48 @@
       <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" /></a>
     </header>
 
+    
     <main id="main">
       <section class="headerSection">
       </section>
       <section class="mediasSection">
       </section>
-
-
+      <section class="articleSection">
+        <p id="numberlike">0</p>
+        <p id="pricedays">0 €/jour</p>
+        
+      </section>
     </main>
 
+    
 
-    <div id="contact_modal">
+
+    <div id="contact_modal" alt="Contact Me">
 			<div class="modal">
 
-				<div class="boutton-close">
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+				<div class="boutton-close" >
+          <h1>Contactez-moi</h1>
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="close Contact Form" />
         </div>
 
 				<form>
           <div class="formData">
-          <label for="first">Prénom</label><br>
-              <input class="text-control" type="text" id="first" name="first" /><br>
+          <label for="first" id="prenom">Prénom</label><br>
+              <input class="text-control" type="text" id="first" name="first" aria-labelledby="prenom" /><br>
             </div>
             <div class="formData">
-              <label for="last">Nom</label><br>
-              <input class="text-control" type="text" id="last" name="last" /><br>
+              <label for="last" id="nom">Nom</label><br>
+              <input class="text-control" type="text" id="last" name="last" aria-labelledby="nom" /><br>
             </div>
             <div class="formData">
-              <label>E-mail</label><br>
-              <input class="text-control" type="text" id="email" name="email" /><br>
+              <label id="email">E-mail</label><br>
+              <input class="text-control" type="text" id="email" name="email" aria-labelledby="email" /><br>
             </div>
             <div class="formData">
-              <label>Votre message</label><br>
-              <textarea class="text-area" id="message" name="message" rows="5" cols="33"  ></textarea><br>
+              <label id="votre-message">Votre message</label><br>
+              <textarea class="text-area" id="message" name="message" rows="5" cols="33" aria-labelledby="votre_message"  ></textarea><br>
             </div>
-          <button class="contact_button">Envoyer</button>
+          <button id="contact_submit" class="contact_button" alt="send" >Envoyer</button>
 
 				</form>
 
