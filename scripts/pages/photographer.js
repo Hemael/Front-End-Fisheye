@@ -71,6 +71,7 @@ function validateForm(e) {
     
     //met le formulaire dans la console
     console.log(prenom.value,nom.value,adresse.value,commentaire.value)
+    closeModal()
 
 }
 
@@ -78,6 +79,52 @@ function addlike(number){
     const nombre = document.querySelector("#numberlike");
     nombre.textContent = parseInt (nombre.textContent)+number;
 }
+
+
+
+
+const modale = document.querySelector("#lightbox");
+const close = document.querySelector(".close-lightbox");
+    
+// On active le bouton close
+close.addEventListener("click", function(){
+    modale.classList.remove("show");
+});
+
+// On ferme au clic sur la modale
+modale.addEventListener("click", function(){
+    modale.classList.remove("show");
+});
+
+
+
+function showLightbox(){
+    const modale = document.querySelector("#lightbox");
+     
+
+     // On ajoute l'image du lien cliqué dans la modale
+     const image = modale.querySelector(".content-lightbox img");
+     image.src = this.getAttribute("src");
+     const commentaire = modale.querySelector(".commentaire-lightbox");
+     commentaire.textContent = this.getAttribute("title");
+     const idModale = modale.querySelector(".id-lightbox");
+     idModale.textContent = this.getAttribute("idImage");
+
+     // On affiche la modale
+     modale.classList.add("show");
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 init();

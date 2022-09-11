@@ -2,6 +2,17 @@ function headerPhotographerFactory(data) {
     const { name, id, city, country, tagline, price, portrait } = data;
     const picture = `assets/photographers/${portrait}`;
 
+
+
+
+    
+    const prix = document.querySelector("#pricedays")
+    prix.textContent = `${price}€ / jour`
+
+    const nameContact = document.querySelector("#nameContact")
+    nameContact.innerHTML = `Contactez-moi <br>${name}`
+
+
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const url = "/photographer.html?idPhotographer="+id;
@@ -12,8 +23,6 @@ function headerPhotographerFactory(data) {
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
 
-        const prix = document.querySelector("#pricedays")
-        prix.textContent = `${price}€ / jour`
 
         const texte = document.createElement( 'p' );
         texte.textContent = city + ", " + country;
@@ -92,7 +101,11 @@ function mediaFactory(data) {
         if (image){
             const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
+        img.setAttribute("title",title)
+        img.addEventListener("click", showLightbox)
+        img.setAttribute("idImage",id);
         div.appendChild(img)
+        
 
         }
         else{
