@@ -100,18 +100,23 @@ function mediaFactory(data) {
 
         if (image){
             const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        img.setAttribute("title",title)
-        img.addEventListener("click", showLightbox)
-        img.setAttribute("idImage",id);
-        div.appendChild(img)
+
+            img.setAttribute("src", picture)
+            img.setAttribute("title",title)
+            img.addEventListener("click", showLightbox)
+            img.setAttribute("idForLight",idForLight);
+            div.appendChild(img);
         
 
         }
         else{
             const videoArticle = document.createElement( 'video' );
-        videoArticle.setAttribute("src", videos)
-        div.appendChild(videoArticle)
+
+            videoArticle.setAttribute("src", videos);
+            videoArticle.setAttribute("title", title);
+            videoArticle.addEventListener("click",showLightbox);
+            videoArticle.setAttribute("idForLight",idForLight);
+            div.appendChild(videoArticle);
         }
 
         
@@ -149,7 +154,7 @@ function mediaFactory(data) {
         article.appendChild(boiteTexte)
         
         
-        
+        idForLight++;
 
         return (article);
     }

@@ -33,12 +33,20 @@
     </main>
 
     <div id="lightbox" class="lightbox">
-      <span class="close-lightbox">&times;</span>
+      
+      <span class="close-lightbox">&times;</span> 
       <input class="id-lightbox"/> 
-      <div class="content-lightbox">
-          <img src="" alt="">
-      </div>
-      <p class="commentaire-lightbox"></p>
+      <div class="open-lightbox">
+        <div class="content-lightbox">
+          <span class ="previous-lightbox"> &lt; </span>
+            <img src="" alt="">
+            <video></video>
+            <span class ="next-lightbox"> &gt; 
+          </span>
+        </div>
+        <p class="commentaire-lightbox"></p>
+    </div>
+      
   </div>
 
 
@@ -49,7 +57,7 @@
 
 				<div class="boutton-close" >
           <h1 id="nameContact">Contactez-moi</h1>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="close Contact Form" />
+          <img class="croix-bouton" src="assets/icons/close.svg" onclick="closeModal()" alt="close Contact Form" />
         </div>
 
 				<form>

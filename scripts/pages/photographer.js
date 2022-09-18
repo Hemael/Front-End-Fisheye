@@ -1,5 +1,5 @@
 //Mettre le code JavaScript lié à la page photographer.html
-
+var idForLight = 0;
 
 async function getMedia(photographerId) {
 
@@ -85,37 +85,83 @@ function addlike(number){
 
 const modale = document.querySelector("#lightbox");
 const close = document.querySelector(".close-lightbox");
+const next = document.querySelector(".next-lightbox")
+const previous = document.querySelector(".previous-lightbox")
+
+
+
     
 // On active le bouton close
 close.addEventListener("click", function(){
     modale.classList.remove("show");
 });
 
-// On ferme au clic sur la modale
-modale.addEventListener("click", function(){
-    modale.classList.remove("show");
-});
 
 
+next.addEventListener("click",() =>{changeLightbox("up")})
+previous.addEventListener("click",() =>{changeLightbox("previous")})
 
 function showLightbox(){
-    const modale = document.querySelector("#lightbox");
-     
+    updateElementLightbox(this)
+    
 
-     // On ajoute l'image du lien cliqué dans la modale
-     const image = modale.querySelector(".content-lightbox img");
-     image.src = this.getAttribute("src");
-     const commentaire = modale.querySelector(".commentaire-lightbox");
-     commentaire.textContent = this.getAttribute("title");
-     const idModale = modale.querySelector(".id-lightbox");
-     idModale.textContent = this.getAttribute("idImage");
-
-     // On affiche la modale
-     modale.classList.add("show");
 }
 
+function changeLightbox(act){
+
+    var id=document.querySelector(".id-lightbox").value;
+    var numberArticle = document.querySelectorAll(".article_media").length;
+    if (act == "up"){
+        id++
+    }
+    else{
+        id--
+    }
+
+    if(id == -1){
+        id = numberArticle -1;
+    }
+    if (id == numberArticle){
+        id = 0;
+    }
+    var newElement = document.querySelector(`*[idForLight="${id}"]`);
+    updateElementLightbox(newElement);
 
 
+}
+
+function updateElementLightbox(element){
+
+    const modale = document.querySelector("#lightbox");
+    console.log(element.tagName)
+
+    const video = modale.querySelector(".content-lightbox video");
+    const image = modale.querySelector(".content-lightbox img");
+
+    if(element.tagName == "VIDEO"){
+        image.src = ""; 
+        image.style.display = "none";
+        video.src = element.getAttribute("src")
+        video.style.display = "block";
+
+    }
+
+    else{
+        video.src = "";
+        video.style.display = "none";
+        image.src = element.getAttribute("src");
+        image.style.display = "block";
+    }
+
+    const commentaire = modale.querySelector(".commentaire-lightbox");
+    commentaire.textContent = element.getAttribute("title");
+
+    const idModale = modale.querySelector(".id-lightbox");
+    idModale.setAttribute("value", element.getAttribute("idForLight"))
+
+    modale.classList.add("show");
+
+}
 
 
 

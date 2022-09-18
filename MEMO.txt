@@ -33,7 +33,8 @@ const photographerModel = photographerFactory(photographer);
 --> (photographer) : c'est la variable mis en parametre
 
 
-demander a mon prof priver : 
-
-rajouter nom dans questionnaire
-truc photo
+> faire next precedent
+> like
+> menu
+> mettre les videos
+> 
