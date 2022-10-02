@@ -6,8 +6,11 @@ async function getMedia(photographerId) {
     //recuperer les donnés de data
     const response = await fetch('/data/photographers.json');
     const photographe = await response.json();
+    const media = photographe.media.filter(vaba  => vaba.photographerId == photographerId)
     // retourner photographers
-    return photographe.media.filter(vaba  => vaba.photographerId == photographerId)
+    return media.sort(function(a,b){
+        return b.likes - a.likes;
+    })
     
     
 }
@@ -98,8 +101,9 @@ close.addEventListener("click", function(){
 
 
 
-next.addEventListener("click",() =>{changeLightbox("up")})
-previous.addEventListener("click",() =>{changeLightbox("previous")})
+next.addEventListener("click",() =>{changeLightbox("up")});
+previous.addEventListener("click",() =>{changeLightbox("previous")});
+document.querySelector("#triSection").addEventListener("change",fctHideOption);
 
 function showLightbox(){
     updateElementLightbox(this)
@@ -133,24 +137,25 @@ function changeLightbox(act){
 function updateElementLightbox(element){
 
     const modale = document.querySelector("#lightbox");
-    console.log(element.tagName)
 
     const video = modale.querySelector(".content-lightbox video");
     const image = modale.querySelector(".content-lightbox img");
-
     if(element.tagName == "VIDEO"){
         image.src = ""; 
         image.style.display = "none";
         video.src = element.getAttribute("src")
         video.style.display = "block";
-
+        
+        
     }
 
     else{
-        video.src = "";
+        
         video.style.display = "none";
         image.src = element.getAttribute("src");
         image.style.display = "block";
+        
+        
     }
 
     const commentaire = modale.querySelector(".commentaire-lightbox");
@@ -164,13 +169,93 @@ function updateElementLightbox(element){
 }
 
 
+document.addEventListener("keydown", actkeys)
+
+
+function actkeys(event){
+    
+   
+
+    if( document.querySelector("#lightbox.show") != undefined){
+        
+
+        if(event.key == "ArrowRight" || event.key == "d" ){
+
+            changeLightbox("up");
+
+        }
+
+        else if(event.key == "ArrowLeft" || event.key == "q" ){
+            changeLightbox("down");
+        }
+
+        else if(event.key == "Escape" ){
+
+            modale.classList.remove("show");
+        }
+    }
+}
 
 
 
+function clickLike(){
+
+    this.parentNode.querySelector("p").innerHTML++;
+    addlike(1);
+    this.removeEventListener("click", clickLike);
+}
+
+function fctHideOption (){
+    var option = this.value;
+    var optdom = document.querySelector(".hideOption");
+    if(optdom != undefined){
+        optdom.classList.remove("hideOption");
+    }
+    document.querySelector(`option[value = "${option}"]`).classList.add("hideOption");
+}
 
 
+document.querySelector("#triSection").addEventListener("change", changeSortMethod);
 
+function changeSortMethod(event){
+    var articles = getArticleSort(this.value)
+    var i = 1;
+    articles.forEach(element => {
+        element.style.order = i;
+        element.querySelector("img").setAttribute("idForLight",i-1)
+        i++;
+    })
+}
 
+function getArticleSort(sort){
+    var DOM = document.querySelectorAll(".article_media") 
+    
+    DOM = Array.from(DOM).sort(function(a,b){
+        if(sort =="name"){
+    
+            return a.getAttribute(`data-${sort}`).localeCompare(b.getAttribute(`data-${sort}`))
+            
+        }
+        else if(sort == "date"){
+            var date1 = b.getAttribute(`data-${sort}`).split("-");
+            var date2 = a.getAttribute(`data-${sort}`).split("-");
+
+            return new Date(date1[0],date1[1],date1[2]).getTime()-new Date(date2[0],date2[1],date2[2]).getTime(); //firefox fais de la merde avec les dates, cordialement
+            
+        }
+        return b.getAttribute(`data-${sort}`) -a.getAttribute(`data-${sort}`)
+    });
+    return DOM;
+}
+  
+
+window.onload = function () {
+
+    document.querySelector("#triSection").selectedIndex = "like";
+    document.querySelector(`option[value = "like"]`).classList.add("hideOption");
+
+}
 
 
 init();
+

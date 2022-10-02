@@ -79,18 +79,21 @@ function mediaFactory(data) {
     var str = window.location.toString();
     var url = new URL(str);
     const idPhotographer = url.searchParams.get("idPhotographer")
-    console.log(idPhotographer);
 
     addlike(likes);
 
 
     const picture = `assets/images/${idPhotographer}/${image}`;
     const videos = `assets/images/${idPhotographer}/${video}`;
-    const heart = "assets/images/Heart_symbol_c00.png";
+    const heart = "assets/images/coeur.png";
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         article.classList.add("article_media");
+        article.setAttribute("data-like", likes);
+        article.setAttribute("data-date", date);
+        article.setAttribute("data-name", title);
+
 
         const div = document.createElement( 'div' );
         div.classList.add("photo_media");
@@ -139,7 +142,7 @@ function mediaFactory(data) {
         coeur.setAttribute("src", heart);
         coeur.setAttribute("alt", "likes")
         coeur.classList.add("heart");
-
+        coeur.addEventListener("click", clickLike)
         
         
         article.appendChild(div);
@@ -148,6 +151,7 @@ function mediaFactory(data) {
         //Je met mes coeurs et mes likes dans ma div 
         likeHeart.appendChild(like);
         likeHeart.appendChild(coeur);
+
         
         boiteTexte.appendChild(likeHeart)
 
@@ -155,6 +159,9 @@ function mediaFactory(data) {
         
         
         idForLight++;
+
+        
+
 
         return (article);
     }

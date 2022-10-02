@@ -81,6 +81,7 @@ form input {
     justify-content: space-between;
     align-items: center;
     padding: 50px;
+    margin-bottom: 50px;
     
 }
 
@@ -106,7 +107,7 @@ article h2{
 div .habitation {
     color: #901C1C;
     font-size: 20px;
-    margin-top: 20px;
+    margin-top: 15px;
     
 }
 
@@ -238,6 +239,7 @@ article .tagline{
     position: sticky;
     bottom:0px;
     left: 83%;
+    align-items: center;
     
 
     
@@ -311,7 +313,7 @@ article .tagline{
     font-size: 60px;
     position: fixed;
     top: 20px;
-    right: 200px;
+    right: 653px;
     cursor: pointer;
 }
 
@@ -333,7 +335,59 @@ article .tagline{
     color: #901C1C;
     max-width: 27.6%;
     margin: auto;
+}
 
+.coeurn{
+    display: flex;
+    height: 17px;
+    width: 17px;
+    margin-left: -110px;
+}
+
+video{
+    width: 100%;
+    height: auto;
+}
+
+.contact_button:hover{
+    background-color: #DB8876;
+    color:black;
+}
+
+#triSection{
+    background-color: #901C1C;
+    color: white;
+    font-size: 20px;
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 7px;
+    border: none;
+}
+
+.menuSection{
+    font-size: 20px;
+    margin-left: 100px;
+    font-weight: 600;
+    border: none;
+    border-radius: none;
+}
+
+#triSection:focus{
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border: none;
+    border-radius: none;
     
-    
+}
+
+.hideOption{
+    display: none;
+}
+
+option{
+    border-top: solid white;
+    margin :400px;
+
 }

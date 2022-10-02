@@ -23,13 +23,26 @@
     <main id="main">
       <section class="headerSection">
       </section>
+
+      <label for="menu"class="menuSection">Trier par : </label>
+
+<select name="menu" id="triSection">
+    <option value="like" selected>Popularité</option>
+    <option value="date">Date</option>
+    <option value="name">Titre</option>
+</select>
+
+
       <section class="mediasSection">
       </section>
       <section class="articleSection">
         <p id="numberlike">0</p>
+        <img src="assets/coeurn.png" class="coeurn" alt="coeur like" />
         <p id="pricedays">0 €/jour</p>
         
       </section>
+
+
     </main>
 
     <div id="lightbox" class="lightbox">
@@ -40,7 +53,7 @@
         <div class="content-lightbox">
           <span class ="previous-lightbox"> &lt; </span>
             <img src="" alt="">
-            <video></video>
+            <video controls preload="yes"></video>
             <span class ="next-lightbox"> &gt; 
           </span>
         </div>

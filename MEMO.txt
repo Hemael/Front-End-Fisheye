@@ -15,26 +15,18 @@ return photographe;
     
 
 
-
-
-
-passer par quoi pour les pages photographes (par le get (parametre par url) ou par le post(passer par lentete))
-
-
-
-
-ou mettre dans le javascript alt et aria-label.
-
-
-
 const photographerModel = photographerFactory(photographer);
 --> photographerModel c'est le nom de la variable
 --> photographerFactory : c'est la fonction
 --> (photographer) : c'est la variable mis en parametre
 
 
-> faire next precedent
-> like
-> menu
-> mettre les videos
-> 
+
+les attributs sont les elements qu'ont rajoute a travers une balise exemple : 
+<a href="choco.fr" name="choco" class="choco"> choco choco ! </a>
+
+a = tag de la balise (son type)
+attributs = href  name et class sont des attributs
+innerHTML = ce qu'il y a entre les deux balises et le contenus
+
+methode = fonction 
