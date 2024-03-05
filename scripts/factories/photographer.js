@@ -10,8 +10,6 @@ function photographerFactory(data) {
         const article = document.createElement( 'article' );
         const url = "/photographer.html?idPhotographer="+id
         
-        
-
         const div = document.createElement( 'div' );
         div.classList.add("photodim");
         

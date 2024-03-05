@@ -1,6 +1,16 @@
 //Mettre le code JavaScript lié à la page photographer.html
 var idForLight = 0;
 
+var selectedElement;
+
+    // Écouter l'événement focus pour chaque élément pouvant recevoir le focus
+    document.addEventListener('focusin', function(event) {
+        // Stocker l'élément actuellement sélectionné
+        selectedElement = event.target;
+    });
+
+
+
 async function getMedia(photographerId) {
 
     //recuperer les donnés de data
@@ -36,6 +46,13 @@ async function displayData(medias) {
             
             const mediaModel = mediaFactory(media);
             const userCardDOM = mediaModel.getUserCardDOM();
+
+            //Add event listener on each photo in the case that the user press enter to display it
+            userCardDOM.addEventListener("keydown", function(event){
+                if(event.key === "Enter" || event.keyCode === 13){
+                    updateElementLightbox(selectedElement)
+                }
+            });
             mediasSection.appendChild(userCardDOM);
         });
 };
@@ -77,6 +94,15 @@ function validateForm(e) {
     closeModal()
 
 }
+
+function onKeyPress(event) {
+    if (event.key === 'Escape') {
+        closeModal()
+    }
+}
+
+
+
 
 function addlike(number){
     const nombre = document.querySelector("#numberlike");
@@ -222,7 +248,16 @@ function changeSortMethod(event){
     var i = 1;
     articles.forEach(element => {
         element.style.order = i;
-        element.querySelector("img").setAttribute("idForLight",i-1)
+        var div_photo_media = element.querySelector("div.photo_media")
+        if (div_photo_media.querySelector("img") !== null){
+            element.querySelector("img").setAttribute("idForLight",i-1)
+            element.querySelector("img").setAttribute("tabindex",i-1)
+        } else if (div_photo_media.querySelector("video") !== null){
+            element.querySelector("video").setAttribute("idForLight",i-1)
+            element.querySelector("video").setAttribute("tabindex",i-1)
+        } else {
+            console.warn("no img or video in photo_media div")
+        }
         i++;
     })
 }
@@ -240,7 +275,7 @@ function getArticleSort(sort){
             var date1 = b.getAttribute(`data-${sort}`).split("-");
             var date2 = a.getAttribute(`data-${sort}`).split("-");
 
-            return new Date(date1[0],date1[1],date1[2]).getTime()-new Date(date2[0],date2[1],date2[2]).getTime(); //firefox fais de la merde avec les dates, cordialement
+            return new Date(date1[0],date1[1],date1[2]).getTime()-new Date(date2[0],date2[1],date2[2]).getTime(); 
             
         }
         return b.getAttribute(`data-${sort}`) -a.getAttribute(`data-${sort}`)
@@ -253,7 +288,7 @@ window.onload = function () {
 
     document.querySelector("#triSection").selectedIndex = "like";
     document.querySelector(`option[value = "like"]`).classList.add("hideOption");
-
+    document.addEventListener('keydown', onKeyPress);
 }
 
 

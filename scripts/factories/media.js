@@ -11,11 +11,12 @@ function headerPhotographerFactory(data) {
 
     const nameContact = document.querySelector("#nameContact")
     nameContact.innerHTML = `Contactez-moi <br>${name}`
+    nameContact.setAttribute("aria-label", `Contactez-moi ${name}`);
 
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
-        const url = "/photographer.html?idPhotographer="+id;
+        const url = `/photographer.html?idPhotographer=${id}`;
 
         const headerTexte = document.createElement( 'div' );
         headerTexte.classList.add("header-texte")
@@ -42,7 +43,8 @@ function headerPhotographerFactory(data) {
 
         const boutonContact = document.createElement('button');
         boutonContact.classList.add("contact_button");
-        boutonContact.setAttribute("onclick",`displayModal()`);
+        boutonContact.setAttribute("aria-label", "Contactez-moi");
+        boutonContact.addEventListener("click", () => displayModal(id));
         boutonContact.textContent = "Contactez-moi";
 
         headerContact.appendChild(boutonContact);
@@ -52,19 +54,14 @@ function headerPhotographerFactory(data) {
         const headerImage = document.createElement( 'div' );
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
-        img.setAttribute("alt", name)
+        img.setAttribute("alt",`${name} - Photographe`)
         headerImage.appendChild(img)
         headerImage.classList.add("photodim");
         
         headerContact.appendChild(headerImage)
-        
-        
+         
         article.appendChild(headerContact);
-        
-
-        
-        
-
+      
         return (article);
     }
     return {getUserCardDOM }
@@ -108,9 +105,8 @@ function mediaFactory(data) {
             img.setAttribute("title",title)
             img.addEventListener("click", showLightbox)
             img.setAttribute("idForLight",idForLight);
+            img.setAttribute("tabindex",idForLight);
             div.appendChild(img);
-        
-
         }
         else{
             const videoArticle = document.createElement( 'video' );
@@ -119,7 +115,9 @@ function mediaFactory(data) {
             videoArticle.setAttribute("title", title);
             videoArticle.addEventListener("click",showLightbox);
             videoArticle.setAttribute("idForLight",idForLight);
+            videoArticle.setAttribute("tabindex",idForLight);
             div.appendChild(videoArticle);
+             videoArticle.setAttribute("idForLight",idForLight);
         }
 
         

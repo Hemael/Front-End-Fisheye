@@ -1,101 +1,102 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <title>Fisheye - photographe </title>
-    <meta charset="utf-8">
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <script defer src="scripts/factories/media.js"></script>
-    <script defer src="/scripts/pages/photographer.js"></script>
-    <script defer src="/scripts/utils/contactForm.js"></script>
-  </head>
+
+<head>
+  <title>Fisheye - photographe </title>
+  <meta charset="utf-8">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/photographer.css" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <script defer src="scripts/factories/media.js"></script>
+  <script defer src="/scripts/pages/photographer.js"></script>
+  <script defer src="/scripts/utils/contactForm.js"></script>
+</head>
 
 
-  <body>
+<body>
 
-    <header>
-      <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" /></a>
-    </header>
-
-    
-    <main id="main">
-      <section class="headerSection">
-      </section>
-
-      <label for="menu"class="menuSection">Trier par : </label>
-
-<select name="menu" id="triSection">
-    <option value="like" selected>Popularité</option>
-    <option value="date">Date</option>
-    <option value="name">Titre</option>
-</select>
+  <header>
+    <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"></a>
+  </header>
 
 
-      <section class="mediasSection">
-      </section>
-      <section class="articleSection">
-        <p id="numberlike">0</p>
-        <img src="assets/coeurn.png" class="coeurn" alt="coeur like" />
-        <p id="pricedays">0 €/jour</p>
-        
-      </section>
+  <main id="main">
+    <section class="headerSection">
+    </section>
+
+    <label for="triSection" class="menuSection">Trier par : </label>
+
+    <select name="menu" id="triSection">
+      <option value="like" selected>Popularité</option>
+      <option value="date">Date</option>
+      <option value="name">Titre</option>
+    </select>
 
 
-    </main>
+    <section class="mediasSection"></section>
+    <section class="articleSection">
+      <p id="numberlike">0</p>
+      <img src="assets/coeurn.png" class="coeurn" alt="coeur like">
+      <p id="pricedays">0 €/jour</p>
 
-    <div id="lightbox" class="lightbox">
-      
-       
-      <input class="id-lightbox"/> 
-      <div class="open-lightbox" aria-label="Image closeup view">
-        <div class="content-lightbox">
-          <span class="close-lightbox" title="Close dialog">&times;</span>
-          <span class ="previous-lightbox" title="Previous image"> &lt; </span>
-          <img src="" alt="">
-          <video controls preload="yes"></video>
-          <span class ="next-lightbox" title="Next image"> &gt;</span>
-        </div>
-        <p class="commentaire-lightbox"></p>
+    </section>
+
+
+  </main>
+
+  <div id="lightbox" class="lightbox">
+
+    <label for="id-lightbox" class="t-back"> choco </label>
+    <input class="id-lightbox" type="checkbox" id="id-lightbox">
+    <div class="open-lightbox" aria-label="Image closeup view">
+      <div class="content-lightbox">
+        <span class="close-lightbox" title="Close dialog">&times;</span>
+        <span class="previous-lightbox" title="Previous image"> &lt; </span>
+        <img src="" alt="Image artiste">
+        <video controls preload="auto"></video>
+        <span class="next-lightbox" title="Next image"> &gt;</span>
+      </div>
+      <p class="commentaire-lightbox"></p>
     </div>
-      
+
   </div>
 
 
 
 
-    <div id="contact_modal" alt="Contact Me">
-			<div class="modal">
+  <div id="contact_me">
+    <div class="modal">
 
-				<div class="boutton-close" >
-          <h1 id="nameContact">Contactez-moi</h1>
-          <img class="croix-bouton" src="assets/icons/close.svg" onclick="closeModal()" alt="close Contact Form" />
-        </div>
+      <div class="boutton-close">
+        <h1 id="nameContact">Contactez-moi</h1>
+        <img class="croix-bouton" src="assets/icons/close.svg" onclick="closeModal()" alt="close Contact Form">
+      </div>
 
-				<form>
-          <div class="formData">
+      <form>
+        <div class="formData">
           <label for="first" id="prenom">Prénom</label><br>
-              <input class="text-control" type="text" id="first" name="first" aria-labelledby="prenom" /><br>
-            </div>
-            <div class="formData">
-              <label for="last" id="nom">Nom</label><br>
-              <input class="text-control" type="text" id="last" name="last" aria-labelledby="nom" /><br>
-            </div>
-            <div class="formData">
-              <label id="email">E-mail</label><br>
-              <input class="text-control" type="text" id="email" name="email" aria-labelledby="email" /><br>
-            </div>
-            <div class="formData">
-              <label id="votre-message">Votre message</label><br>
-              <textarea class="text-area" id="message" name="message" rows="5" cols="33" aria-labelledby="votre_message"  ></textarea><br>
-            </div>
-          <button id="contact_submit" class="contact_button" alt="send" >Envoyer</button>
+          <input class="text-control" type="text" id="first" name="first" aria-labelledby="prenom"><br>
+        </div>
+        <div class="formData">
+          <label for="last" id="nom">Nom</label><br>
+          <input class="text-control" type="text" id="last" name="last" aria-labelledby="nom"><br>
+        </div>
+        <div class="formData">
+          <label for="email" id="email-label">Email:</label>
+          <input class="text-control" type="text" name="email" id="email" aria-labelledby="email-label">
+        </div>
+        <div class="formData">
+            <label for="message">Message:</label>
+            <textarea class="text-area" id="message" name="message" rows="5" cols="33"></textarea>
+        </div>
+        <button id="contact_submit" class="contact_button">Envoyer</button>
 
-				</form>
+      </form>
 
-			</div>
-		</div>
-    
-  </body>
+    </div>
+  </div>
+
+</body>
+
 </html>
