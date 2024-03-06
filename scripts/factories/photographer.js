@@ -1,7 +1,7 @@
 
 
-function photographerFactory(data) {
-    const { name, id, city, country, tagline, price, portrait } = data;
+function photographerFactory(data,tabindex) {
+    const { name, id, city, country, tagline, price, portrait, idphoto } = data;
 
     
     const picture = `assets/photographers/${portrait}`;
@@ -19,12 +19,11 @@ function photographerFactory(data) {
 
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
-        img.setAttribute('alt',name)
+        img.setAttribute('alt', name)
         img.setAttribute("onclick",`document.location.href='${url}'`)
-        div.appendChild(img)
+        img.setAttribute("tabindex", tabindex);
+        div.appendChild(img);
 
-        
-        
         
         const texte = document.createElement( 'p' );
         texte.textContent = city + ", " + country;
@@ -48,6 +47,8 @@ function photographerFactory(data) {
 
         return (article);
     }
-    return {getUserCardDOM }
+
+      return {getUserCardDOM }
     
 }
+

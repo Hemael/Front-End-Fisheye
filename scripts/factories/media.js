@@ -3,9 +3,6 @@ function headerPhotographerFactory(data) {
     const picture = `assets/photographers/${portrait}`;
 
 
-
-
-    
     const prix = document.querySelector("#pricedays")
     prix.textContent = `${price}€ / jour`
 

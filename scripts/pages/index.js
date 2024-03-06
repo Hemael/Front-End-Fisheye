@@ -7,20 +7,18 @@
         return photographe.photographers;
     }
 
-
-
-
+    
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
-
-        photographers.forEach((photographer) => {
-            
-            const photographerModel = photographerFactory(photographer);
+        var idphoto = 0;
+        photographers.forEach((photographer) => { 
+            const photographerModel = photographerFactory(photographer, idphoto);
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
+            idphoto ++;
         });
-    };
 
+    };
 
 
     async function init() {
@@ -31,3 +29,8 @@
     
     init();
     
+   
+
+    document.addEventListener('keydown', function(event) {
+        
+        });
