@@ -104,6 +104,7 @@ function onKeyPress(event) {
 
 
 
+
 function addlike(number){
     const nombre = document.querySelector("#numberlike");
     nombre.textContent = parseInt (nombre.textContent)+number;
@@ -170,18 +171,14 @@ function updateElementLightbox(element){
         image.src = ""; 
         image.style.display = "none";
         video.src = element.getAttribute("src")
-        video.style.display = "block";
-        
-        
+        video.style.display = "block";    
     }
 
     else{
         
         video.style.display = "none";
         image.src = element.getAttribute("src");
-        image.style.display = "block";
-        
-        
+        image.style.display = "block";    
     }
 
     const commentaire = modale.querySelector(".commentaire-lightbox");
@@ -199,24 +196,16 @@ document.addEventListener("keydown", actkeys)
 
 
 function actkeys(event){
-    
-   
 
     if( document.querySelector("#lightbox.show") != undefined){
         
-
         if(event.key == "ArrowRight" || event.key == "d" ){
-
             changeLightbox("up");
-
         }
-
         else if(event.key == "ArrowLeft" || event.key == "q" ){
             changeLightbox("down");
         }
-
         else if(event.key == "Escape" ){
-
             modale.classList.remove("show");
         }
     }
