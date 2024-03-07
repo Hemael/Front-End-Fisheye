@@ -115,11 +115,7 @@ function mediaFactory(data) {
             videoArticle.setAttribute("tabindex",idForLight);
             div.appendChild(videoArticle);
              videoArticle.setAttribute("idForLight",idForLight);
-        }
-
-        
-
-        
+        }   
 
         const titrePhoto = document.createElement( 'p' );
         titrePhoto.textContent = title;
@@ -152,11 +148,7 @@ function mediaFactory(data) {
 
         article.appendChild(boiteTexte)
         
-        
         idForLight++;
-
-        
-
 
         return (article);
     }

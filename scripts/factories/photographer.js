@@ -1,7 +1,7 @@
 
 
 function photographerFactory(data,tabindex) {
-    const { name, id, city, country, tagline, price, portrait, idphoto } = data;
+    const { name, id, city, country, tagline, price, portrait} = data;
 
     
     const picture = `assets/photographers/${portrait}`;
@@ -41,10 +41,8 @@ function photographerFactory(data,tabindex) {
         article.appendChild(h2);
         article.appendChild(texte);
         article.appendChild(tag);
-        article.appendChild(prix)
+        article.appendChild(prix)        
         
-        
-
         return (article);
     }
 

@@ -30,3 +30,10 @@ attributs = href  name et class sont des attributs
 innerHTML = ce qu'il y a entre les deux balises et le contenus
 
 methode = fonction 
+
+
+
+
+const : constance
+var : variable (peut bouger et est accessible a l'exterieur/interieur de la fonction)
+let : variable (peut bouger et valable uniquement dans la fonction (où on la déclare))

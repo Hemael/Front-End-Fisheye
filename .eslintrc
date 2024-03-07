@@ -1,14 +1,30 @@
 {
-    "plugins": ["html"], 
-    "rules": {
-      "html/no-empty-element": "error",
-      "html/no-missing-required-attribute": "error",
-      "html/no-script-external-std": "error",
-      "html/no-unknown-element": "error",
-      "html/no-unknown-require-attribute": "error",
-      "html/sort-class": "error",
-      "html/sort-attributes": "error"
-    } 
+
+  "plugins": ["html"],
+  "settings": {
+    "html/html-extensions":[".html", ".we"]
+  },
+  
+  
+  "rules": {
 
     
+    "@html-eslint/no-duplicate-id": "error",
+    "@html-eslint/no-obsolete-tags": "error"
+
+   
+  },
+
+  "env": {
+
+    "node": true,
+    "es6": true
+
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 8
+
   }
+
+}
