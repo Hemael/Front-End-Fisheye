@@ -8,9 +8,6 @@ const submit = document.querySelector("#contact_submit");
 
 
 
-
-
-
 async function getMedia(photographerId) {
     //recuperer les donnés de data
     const response = await fetch('/data/photographers.json');
