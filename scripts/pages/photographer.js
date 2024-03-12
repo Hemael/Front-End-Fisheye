@@ -10,7 +10,7 @@ const submit = document.querySelector("#contact_submit");
 
 async function getMedia(photographerId) {
     //recuperer les donnés de data
-    const response = await fetch('/Front-End-Fisheye/data/photographers.json');
+    const response = await fetch('data/photographers.json');
     const photographe = await response.json();
     const media = photographe.media.filter(myMedia => myMedia.photographerId == photographerId)
 
@@ -24,7 +24,7 @@ async function getMedia(photographerId) {
 async function getPhotographer(photographerId) {
 
     //recuperer les donnés de data
-    const response = await fetch('/Front-End-Fisheye/data/photographers.json');
+    const response = await fetch('data/photographers.json');
     const photographe = await response.json();
     // retourner photographers
     return photographe.photographers.filter(photographer => photographer.id == photographerId) 
