@@ -71,7 +71,7 @@ async function init() {
 
 
 function validateForm(e) {
-    //annule le comportement par defaut
+    //annule le comportement(le rechargement de la page) par defaut
     e.preventDefault();
 
     //recupere les infos du formulaire
@@ -120,8 +120,9 @@ function actkeys(event){
 
 function changeLightbox(act){
 
-    var id=document.querySelector(".id-lightbox").value;
-    var numberArticle = document.querySelectorAll(".article_media").length;
+    let id=document.querySelector(".id-lightbox").value;
+    //permet de connaitre le nombre d'article
+    let numberArticle = document.querySelectorAll(".article_media").length;
     if (act == "up"){
         id++
     }else{
