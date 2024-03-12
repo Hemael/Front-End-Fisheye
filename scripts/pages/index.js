@@ -3,7 +3,7 @@ var selectedElement;
 async function getPhotographers() {
 
   //recuperer les donnés de data
-  const response = await fetch('../../data/photographers.json');
+  const response = await fetch(`/Front-End-Fisheye/data/photographers.json`);
   const photographe = await response.json();
   // retourner photographers
   return photographe.photographers;
