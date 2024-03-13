@@ -1,6 +1,3 @@
-
-
-
 function mediaFactory(data) {
     //const { name, id, city, country, tagline, price, portrait } = data;
     const {id, photographerId, title, image, likes, date, price, video} = data;
@@ -29,6 +26,7 @@ function mediaFactory(data) {
 
         const boiteTexte = document.createElement( 'div' );
         boiteTexte.classList.add("texte_media");
+        
 
         if (image){
             const img = document.createElement( 'img' );
@@ -66,6 +64,8 @@ function mediaFactory(data) {
 
         const titrePhoto = document.createElement( 'p' );
         titrePhoto.textContent = title;
+        titrePhoto.setAttribute("tabindex", idForLight);
+        titrePhoto.classList.add("descriPhoto");
         
 
         const likeHeart = document.createElement('div');
@@ -84,15 +84,13 @@ function mediaFactory(data) {
         coeur.addEventListener("click", clickLike)
         
         
-        
         article.appendChild(div);
         boiteTexte.appendChild(titrePhoto);
         
         //Je met mes coeurs et mes likes dans ma div 
         likeHeart.appendChild(like);
         likeHeart.appendChild(coeur);
-        
-
+    
         
         boiteTexte.appendChild(likeHeart)
 

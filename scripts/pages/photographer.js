@@ -116,7 +116,8 @@ function actkeys(event){
     }
     if (event.key === "Enter" && selectedElement.classList.contains("like_heart")) {
         let event = new Event('click');
-        selectedElement.dispatchEvent(event);
+        selectedElement.querySelector('img').dispatchEvent(event);
+
     }
 }
 
@@ -209,7 +210,9 @@ function changeSortMethod(event){
             console.warn("no img or video in photo_media div")
         }
         element.querySelector(".like_heart").setAttribute("tabIndex",i-1)
+        element.querySelector(".descriPhoto").setAttribute("tabIndex",i-1)
         i++;
+        
         
     })
 }
