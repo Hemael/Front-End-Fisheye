@@ -1,69 +1,4 @@
-function headerPhotographerFactory(data) {
-    const { name, id, city, country, tagline, price, portrait } = data;
-    const picture = `assets/photographers/${portrait}`;
 
-
-    const prix = document.querySelector("#pricedays")
-    prix.textContent = `${price}€ / jour`
-
-    const nameContact = document.querySelector("#nameContact")
-    nameContact.innerHTML = `Contactez-moi <br>${name}`
-    nameContact.setAttribute("aria-label", `Contactez-moi ${name}`);
-
-
-    function getUserCardDOM() {
-        const article = document.createElement( 'article' );
-        const url = `/photographer.html?idPhotographer=${id}`;
-
-        const headerTexte = document.createElement( 'div' );
-        headerTexte.classList.add("header-texte")
-
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
-
-
-        const texte = document.createElement( 'p' );
-        texte.textContent = city + ", " + country;
-        texte.classList.add("habitation"); 
-        
-        const tag= document.createElement( 'p' );
-        tag.textContent = tagline;
-        tag.classList.add("tagline"); 
-
-        headerTexte.appendChild(h2);
-        headerTexte.appendChild(texte);
-        headerTexte.appendChild(tag);
-
-
-        const headerContact = document.createElement( 'div' );
-        headerContact.classList.add("photograph-header");
-
-        const boutonContact = document.createElement('button');
-        boutonContact.classList.add("contact_button");
-        boutonContact.setAttribute("aria-label", "Contactez-moi");
-        boutonContact.addEventListener("click", () => displayModal(id));
-        boutonContact.textContent = "Contactez-moi";
-
-        headerContact.appendChild(boutonContact);
-        headerContact.appendChild(headerTexte)
-        
-
-        const headerImage = document.createElement( 'div' );
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        img.setAttribute("alt",`${name} - Photographe`)
-        headerImage.appendChild(img)
-        headerImage.classList.add("photodim");
-        
-        headerContact.appendChild(headerImage)
-         
-        article.appendChild(headerContact);
-      
-        return (article);
-    }
-    return {getUserCardDOM }
-    
-}
 
 
 function mediaFactory(data) {
@@ -103,6 +38,12 @@ function mediaFactory(data) {
             img.addEventListener("click", showLightbox)
             img.setAttribute("idForLight",idForLight);
             img.setAttribute("tabindex",idForLight);
+            
+            img.addEventListener("keydown", function(event){
+                if(event.key === "Enter" || event.keyCode === 13){
+                    updateElementLightbox(selectedElement)
+                }
+            });
             div.appendChild(img);
         }
         else{
@@ -113,6 +54,12 @@ function mediaFactory(data) {
             videoArticle.addEventListener("click",showLightbox);
             videoArticle.setAttribute("idForLight",idForLight);
             videoArticle.setAttribute("tabindex",idForLight);
+            
+            videoArticle.addEventListener("keydown", function(event){
+                if(event.key === "Enter" || event.keyCode === 13){
+                    updateElementLightbox(selectedElement)
+                }
+            });
             div.appendChild(videoArticle);
              videoArticle.setAttribute("idForLight",idForLight);
         }   
@@ -123,6 +70,7 @@ function mediaFactory(data) {
 
         const likeHeart = document.createElement('div');
         likeHeart.classList.add("like_heart")
+        likeHeart.setAttribute("tabindex", idForLight);
 
 
         const like = document.createElement( 'p' );
@@ -136,12 +84,14 @@ function mediaFactory(data) {
         coeur.addEventListener("click", clickLike)
         
         
+        
         article.appendChild(div);
         boiteTexte.appendChild(titrePhoto);
         
         //Je met mes coeurs et mes likes dans ma div 
         likeHeart.appendChild(like);
         likeHeart.appendChild(coeur);
+        
 
         
         boiteTexte.appendChild(likeHeart)
@@ -155,3 +105,4 @@ function mediaFactory(data) {
     return {getUserCardDOM }
     
 }
+

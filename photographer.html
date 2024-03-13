@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <script defer src="scripts/factories/media.js"></script>
+  <script defer src="scripts/factories/photographer.js"></script>
   <script defer src="scripts/pages/photographer.js"></script>
   <script defer src="scripts/utils/contactForm.js"></script>
 </head>
@@ -50,13 +51,16 @@
     <label for="id-lightbox" class="t-back"> choco </label>
     <input class="id-lightbox" type="checkbox" id="id-lightbox">
     <div class="open-lightbox" aria-label="Image closeup view">
+      
       <div class="content-lightbox">
         <span class="close-lightbox" title="Close dialog">&times;</span>
         <span class="previous-lightbox" title="Previous image"> &lt; </span>
-        <img src="" alt="Image artiste">
+          <img src="" alt="Image artiste">
         <video controls preload="auto"></video>
+
         <span class="next-lightbox" title="Next image"> &gt;</span>
       </div>
+
       <p class="commentaire-lightbox"></p>
     </div>
 

@@ -40,21 +40,20 @@ async function displayData(medias) {
             const userCardDOM = mediaModel.getUserCardDOM();
 
             //Add event listener on each photo in the case that the user press enter to display it
-            userCardDOM.addEventListener("keydown", function(event){
-                if(event.key === "Enter" || event.keyCode === 13){
-                    updateElementLightbox(selectedElement)
-                }
-            });
+           
             mediasSection.appendChild(userCardDOM);
         });
 }
 
 
 async function displayHeader(photographer) {
+    
     const headerSection = document.querySelector(".headerSection");
-    const headerModel = headerPhotographerFactory(photographer);
-    const headerDOM = headerModel.getUserCardDOM();
+    const headerModel = photographerFactory(photographer);
+    const headerDOM = headerModel.getUserCardDOM("header");
+    console.log(headerDOM)
     headerSection.appendChild(headerDOM);
+    
 }
 
 
@@ -114,6 +113,10 @@ function actkeys(event){
         else if(event.key == "Escape" ){
             modale.classList.remove("show");
         }
+    }
+    if (event.key === "Enter" && selectedElement.classList.contains("like_heart")) {
+        let event = new Event('click');
+        selectedElement.dispatchEvent(event);
     }
 }
 
@@ -200,11 +203,14 @@ function changeSortMethod(event){
         else if (div_photo_media.querySelector("video") !== null){
             element.querySelector("video").setAttribute("idForLight",i-1)
             element.querySelector("video").setAttribute("tabindex",i-1)
+
         } 
         else {
             console.warn("no img or video in photo_media div")
         }
+        element.querySelector(".like_heart").setAttribute("tabIndex",i-1)
         i++;
+        
     })
 }
 

@@ -283,14 +283,14 @@ article .heart img {
 .content-lightbox {
     display: flex;
     margin: auto;
-    max-width: 32%;
+    max-width: 100%;
     align-items: center;
 }
 
 .content-lightbox img {
-    display: flex;
-    width: 80%;
-    height: auto;
+    
+    width: auto;
+    height: 800px;
 }
 
 .close-lightbox {
@@ -322,8 +322,9 @@ article .heart img {
     font-size: 20px;
     z-index: 4;
     color: #901C1C;
-    max-width: 27.6%;
-    margin: auto;
+    max-width: 85%;
+    margin-left:46px;
+    margin-top: 3px;
 }
 
 .coeurn {
@@ -334,8 +335,8 @@ article .heart img {
 }
 
 video {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 800px;
 }
 
 .contact_button:hover {
