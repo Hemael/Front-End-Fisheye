@@ -1,6 +1,8 @@
-function mediaFactory(data) {
+import { addlike, showLightbox, idForLight, clickLike, updateElementLightbox, selectedElement, incrementIdForLight} from "../pages/photographer.js";
+
+export function mediaFactory(data) {
     //const { name, id, city, country, tagline, price, portrait } = data;
-    const {id, photographerId, title, image, likes, date, price, video} = data;
+    const {title, image, likes, date, video} = data;
 
     var str = window.location.toString();
     var url = new URL(str);
@@ -96,7 +98,8 @@ function mediaFactory(data) {
 
         article.appendChild(boiteTexte)
         
-        idForLight++;
+        
+        incrementIdForLight();
 
         return (article);
     }

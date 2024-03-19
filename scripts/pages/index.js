@@ -1,3 +1,6 @@
+import { photographerFactory} from "../factories/photographer.js"
+
+
 var selectedElement;
 
 async function getPhotographers() {
@@ -19,14 +22,14 @@ async function displayData(photographers) {
     photographersSection.appendChild(userCardDOM);
     idphoto++;
   });
-};
+}
 
 
 async function init() {
   // Récupère les datas des photographes
   const photographers = await getPhotographers();
   displayData(photographers);
-};
+}
 
 
 // Fais marcher le tab sur les artistes

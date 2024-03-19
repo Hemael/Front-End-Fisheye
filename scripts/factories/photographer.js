@@ -1,6 +1,6 @@
+import { displayModal } from "../utils/contactForm.js";
 
-
-function photographerFactory(data,tabindex = 0) {
+export function photographerFactory(data,tabindex = 0) {
     const { name, id, city, country, tagline, price, portrait} = data;
 
     
@@ -65,6 +65,9 @@ function photographerFactory(data,tabindex = 0) {
             headerTexte.appendChild(h2);
             headerTexte.appendChild(texte);
             headerTexte.appendChild(tag);
+            texte.setAttribute("tabindex", tabindex);
+            tag.setAttribute("tabindex", tabindex);
+            h2.setAttribute("tabindex", tabindex);
 
             //Je profite d'avoir récupéré les données du Json pour alimenter ma page photographer sans recharger le json
             let somme = document.querySelector("#pricedays")

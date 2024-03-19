@@ -1,5 +1,10 @@
-var idForLight = 0;
-var selectedElement;
+import { mediaFactory} from "../factories/media.js"
+import { photographerFactory} from "../factories/photographer.js"
+import { closeModal } from "../utils/contactForm.js";
+
+
+export var idForLight = 0; 
+export var selectedElement;
 const modale = document.querySelector("#lightbox");
 const close = document.querySelector(".close-lightbox");
 const next = document.querySelector(".next-lightbox")
@@ -85,13 +90,13 @@ function validateForm(e) {
 }
 
 
-function addlike(number){
+export function addlike(number){
     const nombre = document.querySelector("#numberlike");
     nombre.textContent = parseInt (nombre.textContent)+number;
 }
 
 
-function showLightbox(){
+export function showLightbox(){
     updateElementLightbox(this)
 }
 
@@ -145,7 +150,7 @@ function changeLightbox(act){
 }
 
 
-function updateElementLightbox(element){
+export function updateElementLightbox(element){
 
     const modale = document.querySelector("#lightbox");
     const video = modale.querySelector(".content-lightbox video");
@@ -173,7 +178,7 @@ function updateElementLightbox(element){
 }
 
 
-function clickLike(){
+export function clickLike(){
 
     this.parentNode.querySelector("p").innerHTML++;
     addlike(1);
@@ -191,7 +196,7 @@ function fctHideOption (){
 }
 
 
-function changeSortMethod(event){
+function changeSortMethod(){
     const articles = getArticleSort(this.value)
     var i = 1;
     articles.forEach(element => {
@@ -265,6 +270,8 @@ window.onload = function () {
     init();
 }
 
+export function incrementIdForLight() {
 
+    idForLight++;}
 
 
