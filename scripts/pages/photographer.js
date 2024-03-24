@@ -1,6 +1,7 @@
-import { mediaFactory} from "../factories/media.js"
-import { photographerFactory} from "../factories/photographer.js"
-import { closeModal } from "../utils/contactForm.js";
+import { closeModal} from "../utils/contactForm.js";
+import { mediaFactory} from "../factories/media.js";
+import { photographerFactory} from "../factories/photographer.js";
+
 
 
 export var idForLight = 0; 
@@ -56,7 +57,7 @@ async function displayHeader(photographer) {
     const headerSection = document.querySelector(".headerSection");
     const headerModel = photographerFactory(photographer);
     const headerDOM = headerModel.getUserCardDOM("header");
-    console.log(headerDOM)
+    
     headerSection.appendChild(headerDOM);
     
 }
@@ -272,6 +273,7 @@ window.onload = function () {
 
 export function incrementIdForLight() {
 
-    idForLight++;}
+    idForLight++;
+}
 
 

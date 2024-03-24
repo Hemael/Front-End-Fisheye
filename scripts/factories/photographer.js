@@ -12,7 +12,6 @@ export function photographerFactory(data,tabindex = 0) {
         let article, url, h2, img, texte, tag;
         
         if (typeFactory == 'header' || typeFactory == 'index') {
-            console.log(typeFactory)
             article = document.createElement('article');
             url = `photographer.html?idPhotographer=${id}`;
             h2 = document.createElement('h2');
@@ -98,7 +97,6 @@ export function photographerFactory(data,tabindex = 0) {
             headerContact.appendChild(headerImage)
                 
             article.appendChild(headerContact);
-            console.log(article)
             item = article;
         }
 
