@@ -61,7 +61,7 @@ export function mediaFactory(data) {
                 }
             });
             div.appendChild(videoArticle);
-             videoArticle.setAttribute("idForLight",idForLight);
+             
         }   
 
         const titrePhoto = document.createElement( 'p' );
