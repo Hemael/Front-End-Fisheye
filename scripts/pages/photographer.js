@@ -12,7 +12,7 @@ const next = document.querySelector(".next-lightbox")
 const previous = document.querySelector(".previous-lightbox")
 const submit = document.querySelector("#contact_submit");
 
-
+const closeContact = document.querySelector(".croix-bouton")
 
 async function getMedia(photographerId) {
     //recuperer les donnés de data
@@ -56,7 +56,7 @@ async function displayHeader(photographer) {
     
     const headerSection = document.querySelector(".headerSection");
     const headerModel = photographerFactory(photographer);
-    const headerDOM = headerModel.getUserCardDOM("header");
+    const headerDOM = headerModel.createHeaderPhotograph();
     
     headerSection.appendChild(headerDOM);
     
@@ -263,6 +263,7 @@ previous.addEventListener("click",() =>{changeLightbox("previous")});
 document.querySelector("#triSection").addEventListener("change",fctHideOption);
 document.addEventListener("keydown", actkeys)
 document.querySelector("#triSection").addEventListener("change", changeSortMethod);
+closeContact.addEventListener("click",closeModal)
 
 
 window.onload = function () {
